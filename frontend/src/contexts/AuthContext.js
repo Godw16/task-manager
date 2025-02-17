@@ -21,7 +21,8 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users/me');
+      const API_URL = 'https://task-manager-backend-vrly.onrender.com';
+      const response = await axios.get(`${API_URL}/api/users/me`);
       setUser(response.data);
     } catch (error) {
       localStorage.removeItem('token');
@@ -33,7 +34,8 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', { email, password });
+      const API_URL = 'https://task-manager-backend-vrly.onrender.com';
+      const response = await axios.post(`${API_URL}/api/users/login`, { email, password });
       localStorage.setItem('token', response.data.token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
       setUser(response.data.user);
@@ -45,7 +47,8 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/users/register', { name, email, password });
+      const API_URL = 'https://task-manager-backend-vrly.onrender.com';
+      const response = await axios.post(`${API_URL}/api/users/register`, { name, email, password }); 
       localStorage.setItem('token', response.data.token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
       setUser(response.data.user);
