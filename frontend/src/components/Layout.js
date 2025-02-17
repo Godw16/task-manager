@@ -44,7 +44,7 @@ const Layout = ({ children, title }) => {
       <Box component="footer" sx={{ py: 3, bgcolor: 'primary.main', color: 'white' }}>
         <Container maxWidth="sm">
           <Typography variant="body2" align="center">
-            © {new Date().getFullYear()} Task Manager by Your Name
+            © {new Date().getFullYear()} Task Manager by S0ulking
           </Typography>
         </Container>
       </Box>
